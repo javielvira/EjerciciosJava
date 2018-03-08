@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author leo_e
+ * @author Javi Elvira
  */
 public class Nivel2 {
     
@@ -39,70 +39,15 @@ public class Nivel2 {
 	    for (int i = 0; i < _palabras.length; i++) {
 		System.out.println(Arrays.toString(_palabras[i]));
 	    }
-	    System.out.println("-----------------------------");
+	    System.out.println("");
 	    System.out.println("Es una escalera de palabras.");
 	} else {
 	    for (int i = 0; i < _palabras.length; i++) {
 		System.out.println(Arrays.toString(_palabras[i]));
 	    }
-	    System.out.println("-----------------------------");
+	    System.out.println("");
 	    System.out.println("No es una escalera de palabras.");
 	}
 
     }
-     
-     ///////////////////////////////////////////////////////////////////////////
-     ///////////////////////////////////////////////////////////////////////////
-     ///////////////////////////////////////////////////////////////////////////
-     ///////////////////////////////////////////////////////////////////////////
-     ///////////////////////////////////////////////////////////////////////////
-     
-      public int costeErroresADN(String uno, String dos) {
-	int errores = 0;
-	if (uno.length() == dos.length()) {
-	    for (int i = 0; i < uno.length(); i++) {
-		errores += comparaNucleotidos(uno.charAt(i), dos.charAt(i));
-	    }
-	}
-	return errores;
-    }
-      
-      
-      public int comparaNucleotidos(char uno, char dos) {
-	int error = 0;
-
-	//Comprobamos si los Nucleotidos son iguales
-	if (uno == dos) {
-	    error++;
-	}
-
-	//Transforma las T en A de uno
-	if (uno == 'T') {
-	    uno = 'A';
-	} else if (uno == 'G') {
-	    uno = 'C';
-	}
-
-	//Transforma las T en A de dos
-	if (dos == 'T') {
-	    dos = 'A';
-	} else if (dos == 'G') {
-	    dos = 'C';
-	}
-
-	//Comprobamos si los Nucleotidos son distintos despues de la transformacion
-	if (uno != dos) {
-	    if (uno == '-') {
-		error += 2;
-	    } else if (dos == '-') {
-		error += 2;
-	    } else {
-		error++;
-	    }
-	}
-
-	return error;
-    }
-
-    
 }

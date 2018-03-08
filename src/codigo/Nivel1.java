@@ -127,6 +127,58 @@ public class Nivel1 {
 	}
     }
     
+    public boolean Anagrama(String palabra1, String palabra2){
+            palabra1.toLowerCase();
+            palabra2.toLowerCase();
+            String cadena = "";
+            int contador =0 ; 
+            boolean presente = false;
+            
+            
+            for(int i=0; i < palabra1.length(); i++){
+                contador=0;         
+                presente=false;
+                
+              if(palabra1.length() != palabra2.length()){
+                return false;
+              }
+              while(contador<palabra1.length() && presente == false){
+                 if(palabra1.charAt(i) == palabra2.charAt(contador)){
+                   cadena+=palabra1.substring(i,i+1);
+                   presente=true;
+                 }
+                 contador++;
+              System.out.println(cadena);
+              }
+              
+            }
+           
+            if(cadena.equals(palabra1)){
+               return true;
+            }
+            return false;
+    }
+    
+    
+    public String Acronimo(String acronimo){
+       String cadena="";
+       String primera="";
+       
+       for(int i=0; i < acronimo.length(); i++){
+         if(!acronimo.substring(0,1).equals("y") && !acronimo.substring(0,1).equals("e") &&
+                 !acronimo.substring(0,2).equals("de") && !acronimo.substring(0,2).equals("la") && !acronimo.substring(0,3).equals("las")){
+            primera=acronimo.substring(0,1);
+         }
+         if(acronimo.charAt(i) ==' ' && (!acronimo.substring(i+1,i+2).equals("y") && !acronimo.substring(i+1,i+2).equals("e") &&
+                 !acronimo.substring(i+1,i+3).equals("de") && !acronimo.substring(i+1,i+3).equals("la") && !acronimo.substring(i+1,i+4).equals("las"))){
+          i++;
+          cadena += acronimo.substring(i,i+1);
+         }
+           
+       }
+       return primera+cadena;
+    }
+    
      /**
      * @param args the command line arguments
      */
@@ -154,5 +206,12 @@ public class Nivel1 {
 
 //        ejercicio1.Calendario(3);
 //        System.out.println("");
-}
+
+//        String palabra1="PENE";
+//        String palabra2="NEPE";
+//        System.out.println(ejercicio1.Anagrama(palabra1,palabra2));
+
+//        String acro="Una Polla Grande";
+//        System.out.println(ejercicio1.Acronimo(acro));
+    }
 }
